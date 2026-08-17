@@ -125,19 +125,19 @@ Includes:
 
 JARVIS displays live system states:
 
-```
+```text
 IDLE // SECURED STANDBY
 ```
 
-```
+```text
 VOCAL CAPTURE ACTIVE
 ```
 
-```
+```text
 NEURAL INTERPOLATION
 ```
 
-```
+```text
 AUDIO SYNTH DISPATCH
 ```
 
@@ -145,7 +145,7 @@ AUDIO SYNTH DISPATCH
 
 # 📂 Project Structure
 
-```
+```text
 jarvis-1.0/
 
 │
@@ -162,11 +162,8 @@ jarvis-1.0/
 ├── assets/
 │
 ├── main.py
-│
 ├── requirements.txt
-│
 ├── api.env
-│
 └── README.md
 ```
 
@@ -206,87 +203,105 @@ Planned features:
 
 **krazydev001**
 
-## Building AI-powered desktop applications, automation tools, and futuristic Python projects.
-
-# 🎙️ Vosk Setup
-
-JARVIS requires the Vosk speech recognition model for voice commands.
-
-Follow the steps below to install it.
+Building AI-powered desktop applications, automation tools, and futuristic Python projects.
 
 ---
 
-# 1. Download Vosk Model
+# 🎙️ Vosk Setup
 
-Download the recommended English model:
+JARVIS requires a Vosk speech recognition model for voice commands.
 
-**Model:**
+JARVIS is configured to load the speech recognition model from:
 
+```text
+model
 ```
-vosk-model-small-en-us-0.15
-```
+
+You can use different compatible Vosk models by replacing the contents of this folder. **You do not need to change the JARVIS source code when switching between compatible models.**
+
+---
+
+# 1. Download a Vosk Model
+
+Vosk provides multiple speech recognition models with different sizes and languages.
 
 Official Vosk Models:
 
-```
+```text
 https://alphacephei.com/vosk/models
+```
+
+For example, the recommended English model is:
+
+```text
+vosk-model-small-en-us-0.15
 ```
 
 Direct Download:
 
-```
+```text
 https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
 ```
+
+You can also choose another compatible Vosk model from the official model list.
 
 ---
 
 # 2. Extract the ZIP File
 
-After downloading:
+After downloading the model, extract the ZIP file.
 
-```
+For example:
+
+```text
 vosk-model-small-en-us-0.15.zip
 ```
 
-Extract it.
+After extraction you will get:
 
-You will get:
-
-```
+```text
 vosk-model-small-en-us-0.15
 ```
+
+The exact folder name depends on the model you downloaded.
 
 ---
 
-# 3. Rename the Folder
+# 3. Rename the Model Folder
 
-Rename:
+Rename the extracted model folder to:
 
+```text
+model
 ```
+
+For example:
+
+```text
 vosk-model-small-en-us-0.15
 ```
 
-to:
+becomes:
 
-```
+```text
 model
 ```
 
 The folder name must be exactly:
 
-```
+```text
 model
 ```
 
 ---
 
-# 4. Move Model Folder
+# 4. Move the Model Folder
 
-Place the `model` folder inside your JARVIS project directory.
+Place the `model` folder directly inside your JARVIS project directory.
 
 Your structure should look like:
 
-```
+```text
 jarvis-1.0/
 
 │
@@ -295,22 +310,103 @@ jarvis-1.0/
 │   ├── conf/
 │   ├── graph/
 │   ├── ivector/
-│   └── README
+│   └── ...
 │
 ├── core/
+│   ├── brain.py
+│   └── voice.py
 │
 ├── ui/
+│   └── Hud_widgets.py
+│
+├── assets/
 │
 ├── main.py
-│
 ├── requirements.txt
-│
 └── api.env
+```
+
+The important part is:
+
+```text
+jarvis-1.0/
+└── model/
 ```
 
 ---
 
-# 5. Install Vosk Package
+# 5. Model Folder Must Not Be Nested
+
+Do **not** put the model inside another folder.
+
+Correct:
+
+```text
+jarvis-1.0/
+└── model/
+    ├── am/
+    ├── conf/
+    ├── graph/
+    └── ivector/
+```
+
+Incorrect:
+
+```text
+jarvis-1.0/
+└── model/
+    └── vosk-model-small-en-us-0.15/
+        ├── am/
+        ├── conf/
+        ├── graph/
+        └── ivector/
+```
+
+The Vosk model files must be directly inside the `model` folder.
+
+---
+
+# 6. Changing Vosk Models
+
+You can switch to another compatible Vosk model at any time.
+
+Simply:
+
+1. Download another Vosk model.
+2. Extract it.
+3. Rename its main folder to `model`.
+4. Replace the existing `model` folder.
+5. Start JARVIS.
+
+For example:
+
+```text
+Old model:
+
+vosk-model-small-en-us-0.15
+        ↓
+      model
+```
+
+You can later replace it with another compatible model:
+
+```text
+Another Vosk model
+        ↓
+      model
+```
+
+JARVIS will continue loading:
+
+```text
+model
+```
+
+No changes to `core/voice.py` are required.
+
+---
+
+# 7. Install Vosk
 
 Activate your virtual environment first.
 
@@ -322,7 +418,7 @@ pip install vosk
 
 ---
 
-# 6. Install Audio Support
+# 8. Install Audio Support
 
 Install microphone support:
 
@@ -332,9 +428,9 @@ pip install sounddevice
 
 ---
 
-# 7. Verify Installation
+# 9. Verify Vosk Installation
 
-Check Vosk installation:
+Run:
 
 ```bash
 pip show vosk
@@ -342,14 +438,14 @@ pip show vosk
 
 You should see:
 
-```
+```text
 Name: vosk
 Version: x.x.x
 ```
 
 ---
 
-# 8. Test JARVIS
+# 10. Test JARVIS
 
 Run:
 
@@ -357,11 +453,17 @@ Run:
 python main.py
 ```
 
-If the model is installed correctly, JARVIS will start normally.
+If the model is installed correctly, JARVIS will load the model from:
+
+```text
+model/
+```
+
+and start normally.
 
 The `model` folder must remain in the same directory as:
 
-```
+```text
 main.py
 ```
 
@@ -371,23 +473,33 @@ main.py
 
 ## Model Not Found
 
-Check that your folder is:
+Make sure your folder is:
+
+```text
+jarvis-1.0/model
+```
 
 Correct:
 
-```
-jarvis-1.0/model
+```text
+jarvis-1.0/
+└── model/
+    ├── am/
+    ├── conf/
+    ├── graph/
+    └── ivector/
 ```
 
 Incorrect:
 
-```
-jarvis-1.0/vosk-model-small-en-us-0.15
+```text
+jarvis-1.0/
+└── vosk-model-small-en-us-0.15/
 ```
 
-Rename it to:
+Rename the extracted model folder to:
 
-```
+```text
 model
 ```
 
@@ -395,18 +507,41 @@ model
 
 ## Missing Model Files
 
-The model folder should contain:
+Different Vosk models can contain different files and folders.
 
+Do not manually rename or modify the internal model files.
+
+Instead, download the model again from the official Vosk model page if the extraction appears incomplete.
+
+Official Vosk Models:
+
+```text
+https://alphacephei.com/vosk/models
 ```
-model/
 
-├── am
-├── conf
-├── graph
-└── ivector
+---
+
+## Model Loading Error
+
+If JARVIS shows:
+
+```text
+Exception: Failed to create a model
 ```
 
-If these are missing, download and extract the model again.
+check:
+
+* `model` exists in the project directory
+* The model is extracted correctly
+* The model is not nested inside another folder
+* You downloaded a compatible Vosk model
+* The model files were not modified or deleted
+
+The expected location is:
+
+```text
+jarvis-1.0/model
+```
 
 ---
 
@@ -417,10 +552,23 @@ Make sure:
 * Microphone is connected
 * Microphone permission is enabled
 * Default recording device is selected
+* `sounddevice` is installed
+
+Install again if necessary:
+
+```bash
+pip install sounddevice
+```
 
 ---
 
-## ✅ Vosk setup complete.
+## Vosk Setup Complete
+
+JARVIS can use different compatible Vosk speech recognition models by replacing the `model` folder.
+
+No source-code changes are required when switching between compatible models.
+
+---
 
 # 🐍 Python Setup & Installation
 
@@ -436,7 +584,7 @@ Before installing JARVIS, make sure you have:
 * Git
 * VS Code (Recommended)
 * Microphone
-* Internet connection (Required for Groq AI responses)
+* Internet connection for Groq AI responses
 
 ---
 
@@ -444,14 +592,14 @@ Before installing JARVIS, make sure you have:
 
 Download Python:
 
-```
+```text
 https://www.python.org/downloads/
 ```
 
 During installation enable:
 
-```
-☑ Add Python to PATH
+```text
+Add Python to PATH
 ```
 
 Verify installation:
@@ -462,7 +610,7 @@ python --version
 
 Example:
 
-```
+```text
 Python 3.12.x
 ```
 
@@ -516,7 +664,7 @@ source .venv/bin/activate
 
 After activation:
 
-```
+```text
 (.venv)
 ```
 
@@ -534,7 +682,7 @@ pip install -r requirements.txt
 
 Main dependencies:
 
-```
+```text
 PyQt6
 psutil
 numpy
@@ -549,17 +697,15 @@ python-dotenv
 
 # 7. Configure Groq API
 
-JARVIS uses Groq API for AI responses.
+JARVIS uses the Groq API for AI responses.
 
-Create a file:
+Create a file named:
 
-```
+```text
 api.env
 ```
 
 inside the project folder.
-
----
 
 Add your API key:
 
@@ -575,25 +721,25 @@ GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxx
 
 ---
 
-# 8. Get Groq API Key
+# 8. Get a Groq API Key
 
-Create an account:
+Create an account and generate an API key:
 
-```
+```text
 https://console.groq.com
 ```
 
-Generate an API key and add it to:
+Add the API key to:
 
-```
+```text
 api.env
 ```
 
 ---
 
-# 9. Protect API Key
+# 9. Protect Your API Key
 
-Never upload your API key.
+Never upload your API key to GitHub.
 
 Add this to `.gitignore`:
 
@@ -601,13 +747,17 @@ Add this to `.gitignore`:
 api.env
 ```
 
+You should also avoid posting your API key publicly.
+
+If an API key is accidentally exposed, revoke it and generate a new one.
+
 ---
 
 # 10. Final Project Structure
 
-Before running, your folder should look like:
+Before running JARVIS, your project should look like:
 
-```
+```text
 jarvis-1.0/
 
 │
@@ -629,11 +779,9 @@ jarvis-1.0/
 ├── .venv/
 │
 ├── api.env
-│
 ├── requirements.txt
-│
 ├── main.py
-│
+├── .gitignore
 └── README.md
 ```
 
@@ -659,7 +807,7 @@ python main.py
 
 JARVIS will initialize:
 
-```
+```text
 Loading Interface...
 
 Starting Telemetry...
@@ -679,7 +827,7 @@ System Ready
 
 Press:
 
-```
+```text
 ESC
 ```
 
@@ -691,10 +839,18 @@ to safely close JARVIS.
 
 ## Python Not Found
 
-Install Python again and enable:
+Install Python again and make sure:
 
-```
+```text
 Add Python to PATH
+```
+
+is enabled.
+
+Then restart your terminal and run:
+
+```bash
+python --version
 ```
 
 ---
@@ -711,9 +867,9 @@ pip install -r requirements.txt
 
 ## Groq Error
 
-Check:
+Check that:
 
-```
+```text
 api.env
 ```
 
@@ -723,6 +879,8 @@ contains:
 GROQ_API_KEY=YOUR_KEY
 ```
 
+Make sure you have not accidentally added spaces or quotes around the key.
+
 ---
 
 ## Voice Not Working
@@ -730,10 +888,13 @@ GROQ_API_KEY=YOUR_KEY
 Check:
 
 * Vosk model exists
-* Microphone permissions enabled
-* sounddevice installed
+* `model` folder is in the project root
+* Microphone permissions are enabled
+* Correct microphone is selected
+* `sounddevice` is installed
+* Vosk is installed
 
-Install again:
+Install again if necessary:
 
 ```bash
 pip install sounddevice vosk
@@ -750,6 +911,8 @@ python main.py
 ```
 
 and check the terminal error message.
+
+The terminal output usually identifies the component causing the problem.
 
 ---
 
