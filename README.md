@@ -1,4 +1,5 @@
-# 🛡️ JARVIS 3.0
+# 🛡️ JARVIS 1.0
+
 ## AI Tactical HUD • Hardware Monitoring • Voice AI Assistant
 
 <p align="center">
@@ -17,13 +18,13 @@ Monitor your system performance with live animated telemetry widgets.
 
 Features:
 
-- CPU Usage Monitoring
-- RAM Usage Monitoring
-- GPU Activity Monitoring
-- Network Upload Speed
-- Network Download Speed
-- Live Performance Graphs
-- Real-Time System Statistics
+* CPU Usage Monitoring
+* RAM Usage Monitoring
+* GPU Activity Monitoring
+* Network Upload Speed
+* Network Download Speed
+* Live Performance Graphs
+* Real-Time System Statistics
 
 ---
 
@@ -33,14 +34,14 @@ A futuristic dashboard inspired by sci-fi command interfaces.
 
 Features:
 
-- Full-screen HUD mode
-- Custom PyQt6 widgets
-- Animated interface elements
-- Radar-style displays
-- Live telemetry panels
-- Dynamic status indicators
-- Smooth UI animations
-- Customizable themes
+* Full-screen HUD mode
+* Custom PyQt6 widgets
+* Animated interface elements
+* Radar-style displays
+* Live telemetry panels
+* Dynamic status indicators
+* Smooth UI animations
+* Customizable themes
 
 ---
 
@@ -50,13 +51,13 @@ Hover over dashboard elements to view detailed hardware information.
 
 Displays:
 
-- CPU Model
-- CPU Cores
-- CPU Threads
-- CPU Frequency
-- Installed RAM
-- System Information
-- Hardware Profile
+* CPU Model
+* CPU Cores
+* CPU Threads
+* CPU Frequency
+* Installed RAM
+* System Information
+* Hardware Profile
 
 ---
 
@@ -64,18 +65,18 @@ Displays:
 
 Voice-controlled AI interaction using:
 
-- Vosk Offline Speech Recognition
-- Groq API
-- Llama 3.3 AI Model
-- pyttsx3 Text-To-Speech
+* Vosk Offline Speech Recognition
+* Groq API
+* Llama 3.3 AI Model
+* pyttsx3 Text-To-Speech
 
 Features:
 
-- Offline voice capture
-- Speech-to-text conversion
-- AI responses
-- Voice reply generation
-- Natural conversation
+* Offline voice capture
+* Speech-to-text conversion
+* AI responses
+* Voice reply generation
+* Natural conversation
 
 ---
 
@@ -85,11 +86,11 @@ Powered by Groq Llama 3.3.
 
 Features:
 
-- Fast AI responses
-- Question answering
-- General conversations
-- Smart assistant capabilities
-- Context-based replies
+* Fast AI responses
+* Question answering
+* General conversations
+* Smart assistant capabilities
+* Context-based replies
 
 ---
 
@@ -99,10 +100,10 @@ JARVIS can respond using generated speech.
 
 Features:
 
-- Text-to-Speech
-- Voice playback
-- Animated response display
-- Real-time status updates
+* Text-To-Speech
+* Voice playback
+* Animated response display
+* Real-time status updates
 
 ---
 
@@ -112,11 +113,11 @@ Designed for smooth continuous operation.
 
 Includes:
 
-- Multi-threaded processing
-- Background workers
-- Optimized telemetry updates
-- Low resource usage
-- Responsive UI
+* Multi-threaded processing
+* Background workers
+* Optimized telemetry updates
+* Low resource usage
+* Responsive UI
 
 ---
 
@@ -145,7 +146,7 @@ AUDIO SYNTH DISPATCH
 # 📂 Project Structure
 
 ```
-jarvis-3.0/
+jarvis-1.0/
 
 │
 ├── core/
@@ -173,17 +174,17 @@ jarvis-3.0/
 
 # 🛠 Technologies Used
 
-| Technology | Purpose |
-|-|-|
-| Python | Main language |
-| PyQt6 | User interface |
-| psutil | Hardware monitoring |
-| numpy | Data processing |
-| Vosk | Offline speech recognition |
-| sounddevice | Microphone input |
-| Groq API | AI processing |
-| Llama 3.3 | Language model |
-| pyttsx3 | Text-to-speech |
+| Technology  | Purpose                    |
+| ----------- | -------------------------- |
+| Python      | Main language              |
+| PyQt6       | User interface             |
+| psutil      | Hardware monitoring        |
+| numpy       | Data processing            |
+| Vosk        | Offline speech recognition |
+| sounddevice | Microphone input           |
+| Groq API    | AI processing              |
+| Llama 3.3   | Language model             |
+| pyttsx3     | Text-to-speech             |
 
 ---
 
@@ -191,13 +192,13 @@ jarvis-3.0/
 
 Planned features:
 
-- Wake word detection
-- Weather integration
-- Application launcher
-- Local LLM support
-- Plugin system
-- Smart automation
-- Mobile companion app
+* Wake word detection
+* Weather integration
+* Application launcher
+* Local LLM support
+* Plugin system
+* Smart automation
+* Mobile companion app
 
 ---
 
@@ -205,8 +206,8 @@ Planned features:
 
 **krazydev001**
 
-Building AI-powered desktop applications, automation tools, and futuristic Python projects.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Building AI-powered desktop applications, automation tools, and futuristic Python projects.
+
 # 🎙️ Vosk Setup
 
 JARVIS requires the Vosk speech recognition model for voice commands.
@@ -286,7 +287,7 @@ Place the `model` folder inside your JARVIS project directory.
 Your structure should look like:
 
 ```
-jarvis-3.0/
+jarvis-1.0/
 
 │
 ├── model/
@@ -375,13 +376,13 @@ Check that your folder is:
 Correct:
 
 ```
-jarvis-3.0/model
+jarvis-1.0/model
 ```
 
 Incorrect:
 
 ```
-jarvis-3.0/vosk-model-small-en-us-0.15
+jarvis-1.0/vosk-model-small-en-us-0.15
 ```
 
 Rename it to:
@@ -413,17 +414,17 @@ If these are missing, download and extract the model again.
 
 Make sure:
 
-- Microphone is connected
-- Microphone permission is enabled
-- Default recording device is selected
+* Microphone is connected
+* Microphone permission is enabled
+* Default recording device is selected
 
 ---
 
-✅ Vosk setup complete.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## ✅ Vosk setup complete.
+
 # 🐍 Python Setup & Installation
 
-Follow these steps to install and run JARVIS 3.0.
+Follow these steps to install and run JARVIS 1.0.
 
 ---
 
@@ -431,11 +432,11 @@ Follow these steps to install and run JARVIS 3.0.
 
 Before installing JARVIS, make sure you have:
 
-- Python 3.12+
-- Git
-- VS Code (Recommended)
-- Microphone
-- Internet connection (Required for Groq AI responses)
+* Python 3.12+
+* Git
+* VS Code (Recommended)
+* Microphone
+* Internet connection (Required for Groq AI responses)
 
 ---
 
@@ -478,7 +479,7 @@ git clone <your-repository-url>
 Open the project folder:
 
 ```bash
-cd jarvis-3.0
+cd jarvis-1.0
 ```
 
 ---
@@ -607,7 +608,7 @@ api.env
 Before running, your folder should look like:
 
 ```
-jarvis-3.0/
+jarvis-1.0/
 
 │
 ├── model/
@@ -728,9 +729,9 @@ GROQ_API_KEY=YOUR_KEY
 
 Check:
 
-- Vosk model exists
-- Microphone permissions enabled
-- sounddevice installed
+* Vosk model exists
+* Microphone permissions enabled
+* sounddevice installed
 
 Install again:
 
@@ -754,12 +755,12 @@ and check the terminal error message.
 
 # ✅ Installation Complete
 
-JARVIS 3.0 is now ready.
+JARVIS 1.0 is now ready.
 
 Features enabled:
 
-✅ Tactical HUD Dashboard  
-✅ Hardware Monitoring  
-✅ Offline Voice Recognition  
-✅ Groq AI Assistant  
-✅ Text-To-Speech Response  
+✅ Tactical HUD Dashboard
+✅ Hardware Monitoring
+✅ Offline Voice Recognition
+✅ Groq AI Assistant
+✅ Text-To-Speech Response
