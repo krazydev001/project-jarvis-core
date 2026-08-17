@@ -11,7 +11,7 @@ class VoiceWorker(QThread):
     state_changed = pyqtSignal(str)     # 'listening', 'thinking', 'speaking', 'idle'
     text_recognized = pyqtSignal(str)   
 
-    def __init__(self, model_path="models/vosk-model-small-en-us-0.15"):
+    def __init__(self, model_path="model"):
         super().__init__()
         absolute_model_path = os.path.abspath(model_path)
         
